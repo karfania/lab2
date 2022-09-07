@@ -1,1 +1,36 @@
-Answers go here!
+Problem 1
+- Line Number: 249
+- Nature of the error: incorrect indeces for the creation of a Warrior object, 
+resulting in a null pointer. This produces a seg fault when trying to allocate
+different values to the object it is "pointing" to.
+- Fixing the error: fix the indeces of the 2x2 matrix so they match the rest 
+of the code. Changed invaders[invaderRow][invaderRow] to invaders[invaderRow][invaderCol].
+
+Problem 2
+- Line Number: 27
+- Nature of the error: first if-statement is not valid as there is a semicolon.
+The logic in the brackets will always run, rendering the conditional useless and
+producing a false win for the protector (returns result_protector).
+- Fixing the error: remove the semicolon after the if-statement.
+
+Problem 3
+- Line Number: 62
+- Nature of the error: colIdx does not increase ever, and Invaders[0][0] is not 
+a nullptr, so the program is stuck (doesn't return or iterate). It can't iterate 
+through rows because the inner conditional never terminates, so the program is 
+constantly checking if Invaders[0][0] is a nullptr.
+- Fixing the error: add "++colIdx" to the inner for-loop.
+
+Problem 4
+- Line Number: 218
+- Nature of the error: incorrect/inverted matrix dimensions resulting in a segfault. 
+The deallocation function was called on invaders with the input for rows and columns
+flipped.
+- Fixing the error: swapped the order of m and n in the Deallocatewarriors() function.
+
+Problem 5
+- Line Number: 113 and 117
+- Nature of the error: inverted inequalities resulted in faulty logic. With the error,
+the logic followed that when the protector and invader have the same weapon the player
+with the LOWER power won.
+- Fixing the error: change "<" to ">" in both lines.
